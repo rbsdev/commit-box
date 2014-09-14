@@ -17,8 +17,7 @@ import org.glassfish.jersey.client.filter.HttpBasicAuthFilter;
 @Path("/")
 public class CommitResource {
 	
-	private static final String REPOSITORY_URL = "https://api.github.com/repos/henriqueso";
-	private static final String EVENTS = "/Algorithms/events";
+	private static final String REPOSITORY_URL = "https://api.github.com/repos/rbsdev/commit-box/events";
 	private String user;
 	private String password;
 	
@@ -33,7 +32,7 @@ public class CommitResource {
 		HttpBasicAuthFilter filter = new HttpBasicAuthFilter(user, password);
 		
 		Response githubResponse = client.register(filter)
-				.target(REPOSITORY_URL + EVENTS)
+				.target(REPOSITORY_URL)
 				.request("application/json")
 				.get();
 		
